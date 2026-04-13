@@ -621,10 +621,19 @@ function initAuth() {
                 closeModal('authModal');
                 showToast('success', `Welcome back, ${currentUser.name}! 🏟️`);
             } else {
-                showToast('error', json.message);
+                // Friendly messages for common Supabase auth errors
+                let msg = json.message || 'Login failed.';
+                if (msg.toLowerCase().includes('invalid login') || msg.toLowerCase().includes('invalid credentials')) {
+                    msg = 'Incorrect email or password. Please try again.';
+                } else if (msg.toLowerCase().includes('email not confirmed')) {
+                    msg = 'Your email is not confirmed yet. Please check your inbox and click the verification link, or ask admin to disable email confirmation in Supabase.';
+                } else if (msg.toLowerCase().includes('user not found')) {
+                    msg = 'No account found with this email. Please sign up first.';
+                }
+                showToast('error', msg);
             }
         } catch {
-            showToast('error', 'Login failed. Please try again.');
+            showToast('error', 'Network error. Please check your connection and try again.');
         } finally {
             btn.disabled  = false;
             btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
@@ -648,13 +657,28 @@ function initAuth() {
             });
             const json = await res.json();
             if (json.success) {
-                currentUser = json.data;
-                localStorage.setItem('aeroturf_user', JSON.stringify(currentUser));
-                updateAuthUI();
-                closeModal('authModal');
-                showToast('success', `Welcome to AeroTurf, ${currentUser.name}! 🎉`);
+                // If Supabase returns a user with an ID, log them in immediately.
+                // If email confirmation is ON in Supabase, id may be present but
+                // login will fail until confirmed — in that case just show guide.
+                if (json.data && json.data.id) {
+                    currentUser = json.data;
+                    localStorage.setItem('aeroturf_user', JSON.stringify(currentUser));
+                    updateAuthUI();
+                    closeModal('authModal');
+                    showToast('success', `Welcome to AeroTurf, ${currentUser.name}! 🎉`);
+                } else {
+                    // Email confirmation required
+                    closeModal('authModal');
+                    showToast('info', `Account created! Check your email (${email}) to confirm, then sign in.`);
+                }
             } else {
-                showToast('error', json.message);
+                let msg = json.message || 'Registration failed.';
+                if (msg.toLowerCase().includes('already registered') || msg.toLowerCase().includes('already been registered')) {
+                    msg = 'An account with this email already exists. Please sign in instead.';
+                } else if (msg.toLowerCase().includes('password')) {
+                    msg = 'Password must be at least 6 characters.';
+                }
+                showToast('error', msg);
             }
         } catch {
             showToast('error', 'Registration failed. Please try again.');
