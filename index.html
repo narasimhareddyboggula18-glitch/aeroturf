@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTurf | Premium Sports Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Aero<span>Turf</span></div>
+        <div class="nav-links">
+            <a href="#" class="active">Discover</a>
+            <a href="#">Categories</a>
+            <a href="#">My Bookings</a>
+            <button class="btn-primary">Sign In</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Unleash Your Game. <br><span class="highlight">Book Premium Venues.</span></h1>
+            <p>From indoor badminton courts to pro-grade outdoor football turfs, find and book the perfect space in seconds.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search by sport, location, or venue name...">
+                <button class="btn-accent">Search</button>
+            </div>
+            
+            <div class="sport-filters">
+                <button class="filter-btn active" data-filter="all">All Sports</button>
+                <button class="filter-btn" data-filter="indoor">Indoor</button>
+                <button class="filter-btn" data-filter="outdoor">Outdoor</button>
+                <button class="filter-btn" data-filter="football">Football</button>
+                <button class="filter-btn" data-filter="badminton">Badminton</button>
+                <button class="filter-btn" data-filter="tennis">Tennis</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="venues-section">
+        <h2 class="section-title">Trending Venues</h2>
+        <div class="venues-grid" id="venuesGrid">
+            <!-- Venue Cards will be dynamically inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

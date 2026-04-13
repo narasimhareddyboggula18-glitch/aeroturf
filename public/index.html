@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTurf | Premium Sports Venue Booking</title>
+    <meta name="description" content="Book premium sports venues for Cricket, Football, Kabaddi, Gym, Tennis & Badminton. Find and reserve the best facilities near you.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ==================== LOADER ==================== -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-text">Aero<span>Turf</span></div>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="logo">Aero<span>Turf</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#sports" class="nav-link">Sports</a>
+                <a href="#venues" class="nav-link">Venues</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-ghost" id="btnMyBookings" style="display:none;">
+                    <i class="fas fa-calendar-check"></i> My Bookings
+                </button>
+                <button class="btn-primary" id="btnAuth">
+                    <i class="fas fa-user"></i> Sign In
+                </button>
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <span class="user-avatar" id="userAvatar">A</span>
+                    <span class="user-name" id="userName">User</span>
+                    <button class="btn-ghost btn-sm" id="btnLogout"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <header class="hero" id="hero">
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge reveal">
+                <i class="fas fa-bolt"></i> India's #1 Sports Booking Platform
+            </div>
+            <h1 class="reveal">
+                Unleash Your Game.<br>
+                <span class="gradient-text" id="typewriterText"></span>
+            </h1>
+            <p class="hero-subtitle reveal">
+                From cricket pitches to kabaddi arenas, football turfs to world-class gyms — 
+                find and book premium sports venues in seconds.
+            </p>
+            <div class="search-bar reveal" id="searchBar">
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+                <input type="text" id="searchInput" placeholder="Search by sport, venue, or city..." autocomplete="off">
+                <button class="btn-accent" id="searchBtn">
+                    <i class="fas fa-arrow-right"></i> Explore
+                </button>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">12+</span>
+                    <span class="hero-stat-label">Premium Venues</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">6</span>
+                    <span class="hero-stat-label">Sports</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">8+</span>
+                    <span class="hero-stat-label">Cities</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to Explore</span>
+        </div>
+    </header>
+
+    <!-- ==================== SPORTS CATEGORIES ==================== -->
+    <section class="sports-section" id="sports">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-fire"></i> Categories</span>
+                <h2 class="section-title">Choose Your Sport</h2>
+                <p class="section-subtitle">Explore venues across 6 popular sports — indoor &amp; outdoor</p>
+            </div>
+            <div class="sports-grid" id="sportsGrid">
+                <div class="sport-card reveal" data-sport="cricket" style="--delay: 0.1s">
+                    <div class="sport-card-glow"></div>
+                    <div class="sport-icon"><i class="fas fa-baseball-ball"></i></div>
+                    <h3>Cricket</h3>
+                    <p>Grounds & Nets</p>
+                    <span class="sport-count" data-sport-count="cricket">2 venues</span>
+                </div>
+                <div class="sport-card reveal" data-sport="football" style="--delay: 0.2s">
+                    <div class="sport-card-glow"></div>
+                    <div class="sport-icon"><i class="fas fa-futbol"></i></div>
+                    <h3>Football</h3>
+                    <p>Turfs & Arenas</p>
+                    <span class="sport-count" data-sport-count="football">2 venues</span>
+                </div>
+                <div class="sport-card reveal" data-sport="kabaddi" style="--delay: 0.3s">
+                    <div class="sport-card-glow"></div>
+                    <div class="sport-icon"><i class="fas fa-hand-fist"></i></div>
+                    <h3>Kabaddi</h3>
+                    <p>Mats & Courts</p>
+                    <span class="sport-count" data-sport-count="kabaddi">2 venues</span>
+                </div>
+                <div class="sport-card reveal" data-sport="gym" style="--delay: 0.4s">
+                    <div class="sport-card-glow"></div>
+                    <div class="sport-icon"><i class="fas fa-dumbbell"></i></div>
+                    <h3>Gym</h3>
+                    <p>Fitness & Training</p>
+                    <span class="sport-count" data-sport-count="gym">2 venues</span>
+                </div>
+                <div class="sport-card reveal" data-sport="tennis" style="--delay: 0.5s">
+                    <div class="sport-card-glow"></div>
+                    <div class="sport-icon"><i class="fas fa-table-tennis-paddle-ball"></i></div>
+                    <h3>Tennis</h3>
+                    <p>Courts & Clubs</p>
+                    <span class="sport-count" data-sport-count="tennis">2 venues</span>
+                </div>
+                <div class="sport-card reveal" data-sport="badminton" style="--delay: 0.6s">
+                    <div class="sport-card-glow"></div>
+                    <div class="sport-icon"><i class="fas fa-shuttlecock"></i></div>
+                    <h3>Badminton</h3>
+                    <p>Indoor Courts</p>
+                    <span class="sport-count" data-sport-count="badminton">2 venues</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VENUES ==================== -->
+    <section class="venues-section" id="venues">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-star"></i> Top Rated</span>
+                <h2 class="section-title">Trending Venues</h2>
+                <p class="section-subtitle">Hand-picked premium facilities loved by athletes</p>
+            </div>
+            <div class="venue-filters reveal" id="venueFilters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All
+                </button>
+                <button class="filter-btn" data-filter="cricket">
+                    <i class="fas fa-baseball-ball"></i> Cricket
+                </button>
+                <button class="filter-btn" data-filter="football">
+                    <i class="fas fa-futbol"></i> Football
+                </button>
+                <button class="filter-btn" data-filter="kabaddi">
+                    <i class="fas fa-hand-fist"></i> Kabaddi
+                </button>
+                <button class="filter-btn" data-filter="gym">
+                    <i class="fas fa-dumbbell"></i> Gym
+                </button>
+                <button class="filter-btn" data-filter="tennis">
+                    <i class="fas fa-table-tennis-paddle-ball"></i> Tennis
+                </button>
+                <button class="filter-btn" data-filter="badminton">
+                    <i class="fas fa-shuttlecock"></i> Badminton
+                </button>
+            </div>
+            <div class="venues-grid" id="venuesGrid">
+                <!-- Cards rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="how-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-lightbulb"></i> Simple</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get on the field in 3 easy steps</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card reveal" style="--delay: 0.1s">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h3>Search & Discover</h3>
+                    <p>Browse venues by sport, location, or price. Use filters to find your perfect match.</p>
+                </div>
+                <div class="step-connector reveal">
+                    <div class="connector-line"></div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step-card reveal" style="--delay: 0.3s">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Pick Date & Slot</h3>
+                    <p>Choose your preferred date and time slot. Real-time availability ensures no double bookings.</p>
+                </div>
+                <div class="step-connector reveal">
+                    <div class="connector-line"></div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step-card reveal" style="--delay: 0.5s">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>Confirm & Play</h3>
+                    <p>Book instantly with confirmation. Show up and enjoy your game — it's that simple!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATS ==================== -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card reveal" style="--delay: 0.1s">
+                    <div class="stat-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Premium Venues</div>
+                </div>
+                <div class="stat-card reveal" style="--delay: 0.2s">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-number" data-target="6">0</div>
+                    <div class="stat-suffix"></div>
+                    <div class="stat-label">Sports</div>
+                </div>
+                <div class="stat-card reveal" style="--delay: 0.3s">
+                    <div class="stat-icon"><i class="fas fa-city"></i></div>
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Cities</div>
+                </div>
+                <div class="stat-card reveal" style="--delay: 0.4s">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-target="2500">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Happy Players</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-heart"></i> Reviews</span>
+                <h2 class="section-title">What Players Say</h2>
+                <p class="section-subtitle">Trusted by thousands of sports enthusiasts</p>
+            </div>
+            <div class="testimonials-carousel" id="testimonialsCarousel">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>"Booked 3 cricket grounds in one week. The quality of venues is outstanding and the booking process is seamless!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6)">R</div>
+                            <div>
+                                <strong>Rahul Sharma</strong>
+                                <span>Cricket Enthusiast, Mumbai</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>"Finally a platform that has kabaddi venues! As a kabaddi player, it was always hard to find quality mats. AeroTurf changed that."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #10b981, #059669)">P</div>
+                            <div>
+                                <strong>Priya Patel</strong>
+                                <span>Kabaddi Player, Jaipur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"We book Skyline Turf every weekend for our 5-a-side matches. Best indoor football experience in the city. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706)">V</div>
+                            <div>
+                                <strong>Vikram Singh</strong>
+                                <span>Football Captain, Pune</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p>"Iron Core Gym through AeroTurf has been a game-changer. The pay-per-session model means no commitments. Love the flexibility!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ef4444, #dc2626)">A</div>
+                            <div>
+                                <strong>Ananya Desai</strong>
+                                <span>Fitness Lover, Hyderabad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevTestimonial"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section reveal">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-bg-pattern"></div>
+                <h2>Ready to Play?</h2>
+                <p>Join thousands of athletes who trust AeroTurf for their sports bookings.</p>
+                <button class="btn-accent btn-lg" id="ctaBtn">
+                    <i class="fas fa-rocket"></i> Get Started — It's Free
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Aero<span>Turf</span></div>
+                    <p>India's premium sports venue booking platform. Play your best game, every time.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Sports</h4>
+                    <a href="#" data-sport-link="cricket">Cricket</a>
+                    <a href="#" data-sport-link="football">Football</a>
+                    <a href="#" data-sport-link="kabaddi">Kabaddi</a>
+                    <a href="#" data-sport-link="gym">Gym</a>
+                    <a href="#" data-sport-link="tennis">Tennis</a>
+                    <a href="#" data-sport-link="badminton">Badminton</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AeroTurf. All rights reserved. Built with <i class="fas fa-heart" style="color: #ef4444"></i> for sports lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BOOKING MODAL ==================== -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal booking-modal">
+            <button class="modal-close" id="closeBooking"><i class="fas fa-times"></i></button>
+            <div class="modal-body">
+                <div class="booking-venue-info" id="bookingVenueInfo">
+                    <img src="" alt="" class="booking-venue-img" id="bookingVenueImg">
+                    <div class="booking-venue-details">
+                        <span class="booking-venue-sport" id="bookingVenueSport"></span>
+                        <h2 id="bookingVenueTitle"></h2>
+                        <p id="bookingVenueLocation"><i class="fas fa-map-marker-alt"></i> <span></span></p>
+                        <div class="booking-venue-price">
+                            <span class="price-amount" id="bookingVenuePrice"></span>
+                            <span class="price-unit">/hour</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-steps">
+                    <div class="booking-step active" data-step="1">
+                        <div class="step-dot">1</div>
+                        <span>Date</span>
+                    </div>
+                    <div class="booking-step" data-step="2">
+                        <div class="step-dot">2</div>
+                        <span>Slot</span>
+                    </div>
+                    <div class="booking-step" data-step="3">
+                        <div class="step-dot">3</div>
+                        <span>Confirm</span>
+                    </div>
+                </div>
+                <!-- Step 1: Date -->
+                <div class="booking-panel active" id="bookingStep1">
+                    <h3><i class="fas fa-calendar-alt"></i> Select Date</h3>
+                    <div class="date-grid" id="dateGrid"></div>
+                </div>
+                <!-- Step 2: Slot -->
+                <div class="booking-panel" id="bookingStep2">
+                    <h3><i class="fas fa-clock"></i> Select Time Slot</h3>
+                    <p class="selected-date-label" id="selectedDateLabel"></p>
+                    <div class="slots-grid" id="slotsGrid"></div>
+                </div>
+                <!-- Step 3: Confirm -->
+                <div class="booking-panel" id="bookingStep3">
+                    <h3><i class="fas fa-check-circle"></i> Confirm Booking</h3>
+                    <div class="booking-summary" id="bookingSummary"></div>
+                    <div class="booking-user-form" id="bookingUserForm">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="bookingName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="bookingEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone (optional)</label>
+                            <input type="tel" id="bookingPhone" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                    <button class="btn-accent btn-lg btn-full" id="confirmBookingBtn">
+                        <i class="fas fa-check"></i> Confirm Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== AUTH MODAL ==================== -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="closeAuth"><i class="fas fa-times"></i></button>
+            <div class="auth-header">
+                <div class="logo">Aero<span>Turf</span></div>
+                <p>Join the game</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Sign Up</button>
+            </div>
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn-accent btn-lg btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+            </form>
+            <!-- Register Form -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="regName" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="regEmail" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Phone</label>
+                    <input type="tel" id="regPhone" placeholder="Your phone number">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="regPassword" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn-accent btn-lg btn-full">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MY BOOKINGS MODAL ==================== -->
+    <div class="modal-overlay" id="myBookingsModal">
+        <div class="modal mybookings-modal">
+            <button class="modal-close" id="closeMyBookings"><i class="fas fa-times"></i></button>
+            <h2><i class="fas fa-calendar-check"></i> My Bookings</h2>
+            <div class="my-bookings-list" id="myBookingsList">
+                <!-- Bookings rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST ==================== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
