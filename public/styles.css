@@ -2378,11 +2378,12 @@ section {
 }
 
 /* ============ MOBILE NAV AUTH BUTTONS ============ */
+/* Hidden on desktop — only shown inside the mobile drawer */
 .nav-auth-mobile {
+    display: none;
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
-    display: flex;
     flex-direction: column;
     gap: 0.6rem;
 }
@@ -2406,16 +2407,27 @@ section {
 
 /* ============ MOBILE IMPROVEMENTS ============ */
 @media (max-width: 768px) {
-    /* Make booking modal full-screen on mobile */
+    /* Show auth buttons inside the hamburger drawer */
+    .nav-auth-mobile {
+        display: flex;
+    }
+
+    /* Hide desktop nav-actions on mobile (auth moves into drawer) */
+    .nav-actions {
+        display: none;
+    }
+
+    /* Modals: slide up from bottom on mobile (sheet style) */
     .booking-modal,
     .auth-modal,
     .mybookings-modal,
     .login-gate-modal {
         width: 100%;
-        max-height: 95vh;
+        max-height: 92vh;
         margin: 0;
         border-radius: var(--radius) var(--radius) 0 0;
         align-self: flex-end;
+        transform: translateY(100%);
     }
 
     .modal-overlay {
@@ -2423,13 +2435,11 @@ section {
         padding: 0;
     }
 
-    .modal-overlay.active .modal {
-        transform: translateY(0) scale(1);
-    }
-
-    /* Slide up animation on mobile */
-    .modal {
-        transform: translateY(100%);
+    .modal-overlay.active .booking-modal,
+    .modal-overlay.active .auth-modal,
+    .modal-overlay.active .mybookings-modal,
+    .modal-overlay.active .login-gate-modal {
+        transform: translateY(0);
     }
 
     .modal-body {
@@ -2442,13 +2452,14 @@ section {
 
     .mybookings-modal {
         padding: 1.5rem;
+        max-height: 90vh;
     }
 
     .login-gate-modal {
         padding: 2rem 1.5rem;
     }
 
-    /* Booking venue info on mobile */
+    /* Booking venue info stacks on mobile */
     .booking-venue-info {
         flex-direction: column;
     }
@@ -2458,12 +2469,12 @@ section {
         height: 140px;
     }
 
-    /* Players selector on mobile */
+    /* Players selector stays inline */
     .players-selector {
         flex-wrap: nowrap;
     }
 
-    /* My bookings card on mobile */
+    /* Booking history card on mobile */
     .my-booking-card {
         flex-wrap: wrap;
     }
@@ -2475,18 +2486,14 @@ section {
         justify-content: space-between;
     }
 
-    .mybookings-modal {
-        max-height: 90vh;
-    }
-
     .my-bookings-list {
         max-height: 55vh;
     }
 
-    /* Toast on mobile */
+    /* Toast slides up from bottom on mobile */
     .toast-container {
         top: auto;
-        bottom: 1rem;
+        bottom: 1.25rem;
         right: 0.75rem;
         left: 0.75rem;
     }
@@ -2495,11 +2502,6 @@ section {
         min-width: 0;
         width: 100%;
         max-width: 100%;
-    }
-
-    /* Nav actions visible on mobile — auth in drawer */
-    .nav-actions {
-        display: none;
     }
 }
 
