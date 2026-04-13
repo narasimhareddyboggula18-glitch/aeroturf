@@ -90,10 +90,12 @@ app.get('/api/venues/:id/slots', async (req, res) => {
 
 // POST /api/bookings  — create a booking
 app.post('/api/bookings', async (req, res) => {
-    const { venueId, date, slot, userName, userEmail, userPhone } = req.body;
+    const { venueId, date, slot, userName, userEmail, userPhone, numPlayers } = req.body;
 
     if (!venueId || !date || !slot || !userName || !userEmail)
         return res.status(400).json({ success: false, message: 'Missing required fields' });
+
+    const players = Math.max(1, Math.min(20, parseInt(numPlayers) || 1));
 
     const venue = getVenues().find(v => v.id === parseInt(venueId));
     if (!venue) return res.status(404).json({ success: false, message: 'Venue not found' });
@@ -114,16 +116,17 @@ app.post('/api/bookings', async (req, res) => {
     const { data: booking, error } = await supabase
         .from('bookings')
         .insert([{
-            venue_id:   parseInt(venueId),
-            venue_name: venue.title,
-            sport:      venue.sport,
+            venue_id:    parseInt(venueId),
+            venue_name:  venue.title,
+            sport:       venue.sport,
             date,
             slot,
-            price:      venue.price,
-            user_name:  userName,
-            user_email: userEmail,
-            user_phone: userPhone || '',
-            status:     'confirmed'
+            price:       venue.price,
+            num_players: players,
+            user_name:   userName,
+            user_email:  userEmail,
+            user_phone:  userPhone || '',
+            status:      'confirmed'
         }])
         .select()
         .single();
