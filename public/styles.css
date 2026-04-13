@@ -2005,3 +2005,540 @@ section {
         height: 1px;
     }
 }
+
+/* ============ LOGIN GATE MODAL ============ */
+.login-gate-modal {
+    width: 420px;
+    max-width: 100%;
+    padding: 3rem 2.5rem;
+    text-align: center;
+}
+
+.login-gate-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-gate-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary-hover);
+    margin-bottom: 0.5rem;
+    animation: pulse-glow 2.5s ease infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.3); }
+    50%       { box-shadow: 0 0 0 12px rgba(99, 102, 241, 0); }
+}
+
+.login-gate-content h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.login-gate-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.login-gate-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.login-gate-actions .btn-lg {
+    justify-content: center;
+}
+
+/* ============ PLAYERS SELECTOR ============ */
+.players-selector {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.players-selector label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.players-selector label i {
+    color: var(--primary-hover);
+}
+
+.players-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 0.25rem;
+}
+
+.players-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.players-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.players-count {
+    font-size: 1.25rem;
+    font-weight: 800;
+    min-width: 28px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.players-note {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+}
+
+/* ============ BOOKING TOTAL ROW ============ */
+.booking-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.04));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.booking-total-price {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--accent);
+}
+
+/* ============ BOOKING STEP CONNECTOR LINE ============ */
+.booking-step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.booking-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 2rem;
+}
+
+.booking-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    min-width: 60px;
+}
+
+/* ============ MY BOOKINGS HEADER ============ */
+.mybookings-header {
+    margin-bottom: 1.5rem;
+    padding-right: 3rem;
+}
+
+.mybookings-header h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bookings-filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.booking-filter-tab {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.booking-filter-tab:hover {
+    border-color: var(--border-hover);
+    color: var(--text-main);
+}
+
+.booking-filter-tab.active {
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    color: white;
+    border-color: transparent;
+}
+
+.tab-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.tab-dot.confirmed { background: var(--accent); }
+.tab-dot.cancelled { background: var(--danger); }
+
+/* ============ ENHANCED BOOKING CARD ============ */
+.my-booking-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.my-booking-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.my-booking-sport-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.sport-tag-cricket   { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+.sport-tag-football  { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.sport-tag-kabaddi   { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.sport-tag-gym       { background: rgba(239, 68, 68, 0.15);  color: #f87171; }
+.sport-tag-tennis    { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.sport-tag-badminton { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+
+.my-booking-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.my-booking-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-booking-info p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.my-booking-info p i {
+    width: 12px;
+    color: var(--text-muted);
+}
+
+.booking-amount {
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+    margin-top: 0.3rem !important;
+}
+
+.my-booking-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.my-booking-status {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.my-booking-status.confirmed {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent);
+}
+
+.my-booking-status.completed {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--primary-hover);
+}
+
+.my-booking-status.cancelled {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+}
+
+.btn-cancel-booking {
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: var(--danger);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+    font-family: var(--font);
+}
+
+.btn-cancel-booking:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.btn-cancel-booking:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============ MOBILE NAV AUTH BUTTONS ============ */
+.nav-auth-mobile {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.mobile-nav-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+.btn-danger-ghost {
+    border-color: rgba(239, 68, 68, 0.3);
+    color: var(--danger);
+}
+
+.btn-danger-ghost:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--danger);
+}
+
+/* ============ MOBILE IMPROVEMENTS ============ */
+@media (max-width: 768px) {
+    /* Make booking modal full-screen on mobile */
+    .booking-modal,
+    .auth-modal,
+    .mybookings-modal,
+    .login-gate-modal {
+        width: 100%;
+        max-height: 95vh;
+        margin: 0;
+        border-radius: var(--radius) var(--radius) 0 0;
+        align-self: flex-end;
+    }
+
+    .modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .modal-overlay.active .modal {
+        transform: translateY(0) scale(1);
+    }
+
+    /* Slide up animation on mobile */
+    .modal {
+        transform: translateY(100%);
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .auth-modal {
+        padding: 1.5rem;
+    }
+
+    .mybookings-modal {
+        padding: 1.5rem;
+    }
+
+    .login-gate-modal {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Booking venue info on mobile */
+    .booking-venue-info {
+        flex-direction: column;
+    }
+
+    .booking-venue-img {
+        width: 100%;
+        height: 140px;
+    }
+
+    /* Players selector on mobile */
+    .players-selector {
+        flex-wrap: nowrap;
+    }
+
+    /* My bookings card on mobile */
+    .my-booking-card {
+        flex-wrap: wrap;
+    }
+
+    .my-booking-actions {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .mybookings-modal {
+        max-height: 90vh;
+    }
+
+    .my-bookings-list {
+        max-height: 55vh;
+    }
+
+    /* Toast on mobile */
+    .toast-container {
+        top: auto;
+        bottom: 1rem;
+        right: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .toast {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Nav actions visible on mobile — auth in drawer */
+    .nav-actions {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-steps {
+        gap: 0;
+    }
+
+    .booking-step span {
+        font-size: 0.65rem;
+    }
+
+    .step-dot {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7rem;
+    }
+
+    .booking-total-row {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .my-booking-sport-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .date-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+
+    .date-card {
+        padding: 0.7rem 0.4rem;
+    }
+
+    .date-card .date-num {
+        font-size: 1.1rem;
+    }
+}
