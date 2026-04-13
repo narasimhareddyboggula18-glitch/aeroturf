@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>AeroTurf | Premium Sports Venue Booking</title>
     <meta name="description" content="Book premium sports venues for Cricket, Football, Kabaddi, Gym, Tennis & Badminton. Find and reserve the best facilities near you.">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,6 +28,18 @@
                 <a href="#venues" class="nav-link">Venues</a>
                 <a href="#how-it-works" class="nav-link">How It Works</a>
                 <a href="#testimonials" class="nav-link">Reviews</a>
+                <!-- Mobile-only auth buttons inside hamburger menu -->
+                <div class="nav-auth-mobile" id="navAuthMobile">
+                    <button class="btn-ghost mobile-nav-btn" id="btnAuthMobile">
+                        <i class="fas fa-user"></i> Sign In
+                    </button>
+                    <button class="btn-ghost mobile-nav-btn" id="btnMyBookingsMobile" style="display:none;">
+                        <i class="fas fa-calendar-check"></i> My Bookings
+                    </button>
+                    <button class="btn-ghost mobile-nav-btn btn-danger-ghost" id="btnLogoutMobile" style="display:none;">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </button>
+                </div>
             </div>
             <div class="nav-actions">
                 <button class="btn-ghost" id="btnMyBookings" style="display:none;">
@@ -42,7 +54,7 @@
                     <button class="btn-ghost btn-sm" id="btnLogout"><i class="fas fa-sign-out-alt"></i></button>
                 </div>
             </div>
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -106,35 +118,35 @@
                     <div class="sport-card-glow"></div>
                     <div class="sport-icon"><i class="fas fa-baseball-ball"></i></div>
                     <h3>Cricket</h3>
-                    <p>Grounds & Nets</p>
+                    <p>Grounds &amp; Nets</p>
                     <span class="sport-count" data-sport-count="cricket">2 venues</span>
                 </div>
                 <div class="sport-card reveal" data-sport="football" style="--delay: 0.2s">
                     <div class="sport-card-glow"></div>
                     <div class="sport-icon"><i class="fas fa-futbol"></i></div>
                     <h3>Football</h3>
-                    <p>Turfs & Arenas</p>
+                    <p>Turfs &amp; Arenas</p>
                     <span class="sport-count" data-sport-count="football">2 venues</span>
                 </div>
                 <div class="sport-card reveal" data-sport="kabaddi" style="--delay: 0.3s">
                     <div class="sport-card-glow"></div>
                     <div class="sport-icon"><i class="fas fa-hand-fist"></i></div>
                     <h3>Kabaddi</h3>
-                    <p>Mats & Courts</p>
+                    <p>Mats &amp; Courts</p>
                     <span class="sport-count" data-sport-count="kabaddi">2 venues</span>
                 </div>
                 <div class="sport-card reveal" data-sport="gym" style="--delay: 0.4s">
                     <div class="sport-card-glow"></div>
                     <div class="sport-icon"><i class="fas fa-dumbbell"></i></div>
                     <h3>Gym</h3>
-                    <p>Fitness & Training</p>
+                    <p>Fitness &amp; Training</p>
                     <span class="sport-count" data-sport-count="gym">2 venues</span>
                 </div>
                 <div class="sport-card reveal" data-sport="tennis" style="--delay: 0.5s">
                     <div class="sport-card-glow"></div>
                     <div class="sport-icon"><i class="fas fa-table-tennis-paddle-ball"></i></div>
                     <h3>Tennis</h3>
-                    <p>Courts & Clubs</p>
+                    <p>Courts &amp; Clubs</p>
                     <span class="sport-count" data-sport-count="tennis">2 venues</span>
                 </div>
                 <div class="sport-card reveal" data-sport="badminton" style="--delay: 0.6s">
@@ -197,7 +209,7 @@
                 <div class="step-card reveal" style="--delay: 0.1s">
                     <div class="step-number">01</div>
                     <div class="step-icon"><i class="fas fa-search"></i></div>
-                    <h3>Search & Discover</h3>
+                    <h3>Search &amp; Discover</h3>
                     <p>Browse venues by sport, location, or price. Use filters to find your perfect match.</p>
                 </div>
                 <div class="step-connector reveal">
@@ -207,7 +219,7 @@
                 <div class="step-card reveal" style="--delay: 0.3s">
                     <div class="step-number">02</div>
                     <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h3>Pick Date & Slot</h3>
+                    <h3>Pick Date &amp; Slot</h3>
                     <p>Choose your preferred date and time slot. Real-time availability ensures no double bookings.</p>
                 </div>
                 <div class="step-connector reveal">
@@ -217,7 +229,7 @@
                 <div class="step-card reveal" style="--delay: 0.5s">
                     <div class="step-number">03</div>
                     <div class="step-icon"><i class="fas fa-check-circle"></i></div>
-                    <h3>Confirm & Play</h3>
+                    <h3>Confirm &amp; Play</h3>
                     <p>Book instantly with confirmation. Show up and enjoy your game — it's that simple!</p>
                 </div>
             </div>
@@ -386,6 +398,28 @@
         </div>
     </footer>
 
+    <!-- ==================== LOGIN GATE MODAL ==================== -->
+    <div class="modal-overlay" id="loginGateModal">
+        <div class="modal login-gate-modal">
+            <button class="modal-close" id="closeLoginGate"><i class="fas fa-times"></i></button>
+            <div class="login-gate-content">
+                <div class="login-gate-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h2>Sign In to Book</h2>
+                <p>Create a free account or sign in to book venues, manage your bookings, and get exclusive deals.</p>
+                <div class="login-gate-actions">
+                    <button class="btn-accent btn-lg" id="loginGateSignIn">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                    <button class="btn-ghost btn-lg" id="loginGateSignUp">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ==================== BOOKING MODAL ==================== -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal booking-modal">
@@ -408,10 +442,12 @@
                         <div class="step-dot">1</div>
                         <span>Date</span>
                     </div>
+                    <div class="booking-step-line"></div>
                     <div class="booking-step" data-step="2">
                         <div class="step-dot">2</div>
                         <span>Slot</span>
                     </div>
+                    <div class="booking-step-line"></div>
                     <div class="booking-step" data-step="3">
                         <div class="step-dot">3</div>
                         <span>Confirm</span>
@@ -432,6 +468,22 @@
                 <div class="booking-panel" id="bookingStep3">
                     <h3><i class="fas fa-check-circle"></i> Confirm Booking</h3>
                     <div class="booking-summary" id="bookingSummary"></div>
+
+                    <!-- Players selector -->
+                    <div class="players-selector">
+                        <label><i class="fas fa-users"></i> Number of Players</label>
+                        <div class="players-control">
+                            <button class="players-btn" id="playersDecrement" type="button">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="players-count" id="playersCount">1</span>
+                            <button class="players-btn" id="playersIncrement" type="button">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <span class="players-note" id="playersNote">1 player</span>
+                    </div>
+
                     <div class="booking-user-form" id="bookingUserForm">
                         <div class="form-group">
                             <label><i class="fas fa-user"></i> Full Name</label>
@@ -445,6 +497,10 @@
                             <label><i class="fas fa-phone"></i> Phone (optional)</label>
                             <input type="tel" id="bookingPhone" placeholder="Enter your phone number">
                         </div>
+                    </div>
+                    <div class="booking-total-row" id="bookingTotalRow">
+                        <span>Total</span>
+                        <span class="booking-total-price" id="bookingTotalPrice">₹0</span>
                     </div>
                     <button class="btn-accent btn-lg btn-full" id="confirmBookingBtn">
                         <i class="fas fa-check"></i> Confirm Booking
@@ -476,7 +532,7 @@
                     <label><i class="fas fa-lock"></i> Password</label>
                     <input type="password" id="loginPassword" placeholder="Enter password" required>
                 </div>
-                <button type="submit" class="btn-accent btn-lg btn-full">
+                <button type="submit" class="btn-accent btn-lg btn-full" id="loginSubmitBtn">
                     <i class="fas fa-sign-in-alt"></i> Sign In
                 </button>
             </form>
@@ -498,7 +554,7 @@
                     <label><i class="fas fa-lock"></i> Password</label>
                     <input type="password" id="regPassword" placeholder="Create a password" required>
                 </div>
-                <button type="submit" class="btn-accent btn-lg btn-full">
+                <button type="submit" class="btn-accent btn-lg btn-full" id="registerSubmitBtn">
                     <i class="fas fa-user-plus"></i> Create Account
                 </button>
             </form>
@@ -509,7 +565,18 @@
     <div class="modal-overlay" id="myBookingsModal">
         <div class="modal mybookings-modal">
             <button class="modal-close" id="closeMyBookings"><i class="fas fa-times"></i></button>
-            <h2><i class="fas fa-calendar-check"></i> My Bookings</h2>
+            <div class="mybookings-header">
+                <h2><i class="fas fa-calendar-check"></i> My Bookings</h2>
+                <div class="bookings-filter-tabs" id="bookingsFilterTabs">
+                    <button class="booking-filter-tab active" data-status="all">All</button>
+                    <button class="booking-filter-tab" data-status="confirmed">
+                        <span class="tab-dot confirmed"></span> Upcoming
+                    </button>
+                    <button class="booking-filter-tab" data-status="cancelled">
+                        <span class="tab-dot cancelled"></span> Cancelled
+                    </button>
+                </div>
+            </div>
             <div class="my-bookings-list" id="myBookingsList">
                 <!-- Bookings rendered by JS -->
             </div>
